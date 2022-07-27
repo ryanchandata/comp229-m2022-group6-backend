@@ -73,20 +73,20 @@ export function ProcessAddPage(req: express.Request, res: express.Response, next
     for (let i = 0; i < questionsTitles.length; i++) {
         for (let j = 0; j < 4; j++) {
             optionsArray.push({
-                "details" : optionDetails[i][j]
+                details : optionDetails[i][j]
             })
         }
         questionsArray.push({
-          "title" : questionsTitles[i],
-          "optionType" : optionType[i],
-          "options" : optionsArray
+          title : questionsTitles[i],
+          optionType : optionType[i],
+          options : optionsArray
       })
   }
   
       let newSurvey = new Survey
     ({
-        "name": req.body.name,
-        "questions": questionsArray
+        name : req.body.name,
+        questions : questionsArray
     })
 
     //Insert the new Survey object into the database (survey collection)
@@ -99,7 +99,7 @@ export function ProcessAddPage(req: express.Request, res: express.Response, next
         }
 
         //new movie has been added -> refresh the movie-list
-        res.json({success: true, msg: 'Successfully Added Survey', survey: newSurvey});
+        return res.json({success: true, msg: 'Successfully Added Survey', survey: newSurvey});
     })
 }
 
