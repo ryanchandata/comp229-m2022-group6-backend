@@ -56,7 +56,7 @@ export function ProcessAddPage(req: express.Request, res: express.Response, next
       req.body.options1,
       req.body.options2,
       req.body.options3,
-      req.body.options4][
+      req.body.options4,
       req.body.options5,
       req.body.options6,
       req.body.options7,
@@ -69,19 +69,20 @@ export function ProcessAddPage(req: express.Request, res: express.Response, next
   
     let optionsArray = []
     let questionsArray = []
+
+    for (let j = 0; j < 2; j++) {
+        optionsArray.push({
+            details : optionDetails[j]
+        })
+    }
     
     for (let i = 0; i < questionsTitles.length; i++) {
-        for (let j = 0; j < 4; j++) {
-            optionsArray.push({
-                details : optionDetails[i][j]
-            })
-        }
         questionsArray.push({
           title : questionsTitles[i],
           optionType : optionType[i],
           options : optionsArray
       })
-  }
+    }
   
       let newSurvey = new Survey
     ({
