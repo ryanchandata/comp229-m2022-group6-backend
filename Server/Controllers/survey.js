@@ -51,12 +51,12 @@ function ProcessAddPage(req, res, next) {
     ];
     let optionsArray = [];
     let questionsArray = [];
-    for (let j = 0; j < 2; j++) {
-        optionsArray.push({
-            details: optionDetails[j]
-        });
-    }
     for (let i = 0; i < questionsTitles.length; i++) {
+        for (let j = 0; j < 4; j++) {
+            optionsArray.push({
+                details: optionDetails[j]
+            });
+        }
         questionsArray.push({
             title: questionsTitles[i],
             optionType: optionType[i],
@@ -98,7 +98,7 @@ function ProcessEditPage(req, res, next) {
     ];
     let optionsArray = [];
     let questionsArray = [];
-    for (let j = 0; j < 2; j++) {
+    for (let j = 0; j < optionDetails.length; j++) {
         optionsArray.push({
             details: optionDetails[j]
         });
