@@ -98,16 +98,16 @@ function ProcessEditPage(req, res, next) {
     ];
     let optionsArray = [];
     let questionsArray = [];
-    for (let i = 0; i < optionDetails.length; i++) {
+    for (let j = 0; j < 2; j++) {
         optionsArray.push({
-            "details": optionDetails[i]
+            details: optionDetails[j]
         });
     }
     for (let i = 0; i < questionsTitles.length; i++) {
         questionsArray.push({
-            "title": questionsTitles[i],
-            "optionType": optionType[i],
-            "options": optionsArray
+            title: questionsTitles[i],
+            optionType: optionType[i],
+            options: optionsArray
         });
     }
     let updateSurveys = new survey_1.default({
