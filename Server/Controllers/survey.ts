@@ -51,16 +51,12 @@ export function ProcessAddPage(req: express.Request, res: express.Response, next
         req.body.question1,
         req.body.question2
     ]
+
     let optionDetails = [
-      req.body.options1,
-      req.body.options2,
-      req.body.options3,
-      req.body.options4,
-      req.body.options5,
-      req.body.options6,
-      req.body.options7,
-      req.body.options8
-  ]
+        [req.body.options1,req.body.options2,req.body.options3,req.body.options4],
+        [req.body.options5,req.body.options6,req.body.options7,req.body.options8]
+    ]
+    
     let optionType = [  
       req.body.optionType1,
       req.body.optionType2
@@ -74,8 +70,8 @@ export function ProcessAddPage(req: express.Request, res: express.Response, next
     for (let i = 0; i < questionsTitles.length; i++) {
         for (let j = 0; j < 4; j++) {
             optionsArray.push({
-                details : optionDetails[j]
-            })
+              "details" : optionDetails[i][j]
+            })      
         }
         questionsArray.push({
           title : questionsTitles[i],
@@ -114,30 +110,23 @@ export function ProcessEditPage(req: express.Request, res: express.Response, nex
         req.body.question2
     ]
     let optionDetails = [
-      req.body.options1,
-      req.body.options2,
-      req.body.options3,
-      req.body.options4,
-      req.body.options5,
-      req.body.options6,
-      req.body.options7,
-      req.body.options8
-  ]
+        [req.body.options1,req.body.options2,req.body.options3,req.body.options4],
+        [req.body.options5,req.body.options6,req.body.options7,req.body.options8]
+    ]
     let optionType = [  
       req.body.optionType1,
       req.body.optionType2
-  ]
+    ]
   
     let optionsArray = []
     let questionsArray = []
 
-    for (let j = 0; j < optionDetails.length; j++) {
-        optionsArray.push({
-            details : optionDetails[j]
-        })
-    }
-
     for (let i = 0; i < questionsTitles.length; i++) {
+        for (let j = 0; j < 4; j++) {
+            optionsArray.push({
+              "details" : optionDetails[i][j]
+            })      
+        }
         questionsArray.push({
           title : questionsTitles[i],
           optionType : optionType[i],
