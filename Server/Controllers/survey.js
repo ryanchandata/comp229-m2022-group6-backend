@@ -59,7 +59,20 @@ function ProcessAddPage(req, res, next) {
     }
     let newSurvey = new survey_1.default({
         name: req.body.name,
-        questions: questionsArray
+        activationDate: req.body.activationDate,
+        expirationDate: req.body.expirationDate,
+        question1: req.body.question1,
+        optionType1: req.body.optionType1,
+        optiondetails1_1: req.body.options1,
+        optiondetails1_2: req.body.options2,
+        optiondetails1_3: req.body.options3,
+        optiondetails1_4: req.body.options4,
+        question2: req.body.question2,
+        optionType2: req.body.optionType2,
+        optiondetails2_1: req.body.options5,
+        optiondetails2_2: req.body.options6,
+        optiondetails2_3: req.body.options7,
+        optiondetails2_4: req.body.options8
     });
     survey_1.default.create(newSurvey, function (err) {
         if (err) {
@@ -101,7 +114,20 @@ function ProcessEditPage(req, res, next) {
     let updateSurveys = new survey_1.default({
         "_id": id,
         "name": req.body.name,
-        "questions": questionsArray
+        "activationDate": req.body.activationDate,
+        "expirationDate": req.body.expirationDate,
+        "question1": req.body.question1,
+        "optionType1": req.body.optionType1,
+        "optiondetails1_1": req.body.options1,
+        "optiondetails1_2": req.body.options2,
+        "optiondetails1_3": req.body.options3,
+        "optiondetails1_4": req.body.options4,
+        "question2": req.body.question2,
+        "optionType2": req.body.optionType2,
+        "optiondetails2_1": req.body.options5,
+        "optiondetails2_2": req.body.options6,
+        "optiondetails2_3": req.body.options7,
+        "optiondetails2_4": req.body.options8
     });
     survey_1.default.updateOne({ _id: id }, updateSurveys, function (err) {
         if (err) {

@@ -12,21 +12,30 @@ const surveySchema = new Schema({
         type: String,
         default: new Date().toISOString()
     },
+    activationDate: {
+        type: Date,
+        default: Date.now()
+    },
+    expirationDate: {
+        type: Date,
+        default: Date.now()
+    },
     responses: {
         type: Number,
         default: 0
     },
-    questions: [{
-            title: String,
-            optionType: String,
-            options: [{
-                    details: String,
-                    count: {
-                        type: Number,
-                        default: 0
-                    }
-                }]
-        }]
+    question1: String,
+    optionType1: String,
+    optiondetails1_1: String,
+    optiondetails1_2: String,
+    optiondetails1_3: String,
+    optiondetails1_4: String,
+    question2: String,
+    optionType2: String,
+    optiondetails2_1: String,
+    optiondetails2_2: String,
+    optiondetails2_3: String,
+    optiondetails2_4: String
 }, {
     collection: "surveys"
 });

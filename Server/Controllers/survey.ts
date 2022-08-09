@@ -83,7 +83,21 @@ export function ProcessAddPage(req: express.Request, res: express.Response, next
       let newSurvey = new Survey
     ({
         name : req.body.name,
-        questions : questionsArray
+        activationDate : req.body.activationDate,
+        expirationDate : req.body.expirationDate,
+        question1 : req.body.question1,
+        optionType1 : req.body.optionType1,
+        optiondetails1_1: req.body.options1,
+        optiondetails1_2: req.body.options2,
+        optiondetails1_3: req.body.options3,
+        optiondetails1_4: req.body.options4,
+        question2 : req.body.question2,
+        optionType2 : req.body.optionType2,
+        optiondetails2_1: req.body.options5,
+        optiondetails2_2: req.body.options6,
+        optiondetails2_3: req.body.options7,
+        optiondetails2_4: req.body.options8
+
     })
 
     //Insert the new Survey object into the database (survey collection)
@@ -138,7 +152,20 @@ export function ProcessEditPage(req: express.Request, res: express.Response, nex
     ({
       "_id": id,
       "name": req.body.name,
-      "questions": questionsArray
+      "activationDate" : req.body.activationDate,
+      "expirationDate" : req.body.expirationDate,
+      "question1" : req.body.question1,
+      "optionType1" : req.body.optionType1,
+      "optiondetails1_1": req.body.options1,
+      "optiondetails1_2": req.body.options2,
+      "optiondetails1_3": req.body.options3,
+      "optiondetails1_4": req.body.options4,
+      "question2" : req.body.question2,
+      "optionType2" : req.body.optionType2,
+      "optiondetails2_1": req.body.options5,
+      "optiondetails2_2": req.body.options6,
+      "optiondetails2_3": req.body.options7,
+      "optiondetails2_4": req.body.options8
     });
 
     //update the survey in the database
