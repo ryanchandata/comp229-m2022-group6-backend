@@ -87,16 +87,16 @@ export function ProcessAddPage(req: express.Request, res: express.Response, next
         expirationDate : req.body.expirationDate,
         question1 : req.body.question1,
         optionType1 : req.body.optionType1,
-        optiondetails1_1: req.body.options1,
-        optiondetails1_2: req.body.options2,
-        optiondetails1_3: req.body.options3,
-        optiondetails1_4: req.body.options4,
+        optiondetails1_1: req.body.optiondetails1_1,
+        optiondetails1_2: req.body.optiondetails1_2,
+        optiondetails1_3: req.body.optiondetails1_3,
+        optiondetails1_4: req.body.optiondetails1_4,
         question2 : req.body.question2,
         optionType2 : req.body.optionType2,
-        optiondetails2_1: req.body.options5,
-        optiondetails2_2: req.body.options6,
-        optiondetails2_3: req.body.options7,
-        optiondetails2_4: req.body.options8
+        optiondetails2_1: req.body.optiondetails2_1,
+        optiondetails2_2: req.body.optiondetails2_2,
+        optiondetails2_3: req.body.optiondetails2_3,
+        optiondetails2_4: req.body.optiondetails2_4
 
     })
 
@@ -156,16 +156,16 @@ export function ProcessEditPage(req: express.Request, res: express.Response, nex
       "expirationDate" : req.body.expirationDate,
       "question1" : req.body.question1,
       "optionType1" : req.body.optionType1,
-      "optiondetails1_1": req.body.options1,
-      "optiondetails1_2": req.body.options2,
-      "optiondetails1_3": req.body.options3,
-      "optiondetails1_4": req.body.options4,
+      "optiondetails1_1": req.body.optiondetails1_1,
+      "optiondetails1_2": req.body.optiondetails1_2,
+      "optiondetails1_3": req.body.optiondetails1_3,
+      "optiondetails1_4": req.body.optiondetails1_4,
       "question2" : req.body.question2,
       "optionType2" : req.body.optionType2,
-      "optiondetails2_1": req.body.options5,
-      "optiondetails2_2": req.body.options6,
-      "optiondetails2_3": req.body.options7,
-      "optiondetails2_4": req.body.options8
+      "optiondetails2_1": req.body.optiondetails2_1,
+      "optiondetails2_2": req.body.optiondetails2_2,
+      "optiondetails2_3": req.body.optiondetails2_3,
+      "optiondetails2_4": req.body.optiondetails2_4
     });
 
     //update the survey in the database
