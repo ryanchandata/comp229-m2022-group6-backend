@@ -9,9 +9,12 @@ const response_1 = __importDefault(require("../Models/response"));
 function DisplayPublicSurveyList(req, res, next) {
     const date = new Date();
     const filters = {
+        activationDate: {
+            $lt: date
+        },
         expirationDate: {
             $gte: date
-        },
+        }
     };
     survey_1.default.find(function (err, surveysCollection) {
         if (err) {
