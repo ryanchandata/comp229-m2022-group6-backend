@@ -2,7 +2,6 @@ import { CallbackError } from 'mongoose';
 import express from 'express';
 
 import Survey from '../Models/survey';
-import Response from '../Models/response';
 
 import {UserDisplayName} from '../Util';
 
@@ -44,10 +43,6 @@ export function DisplayEditPage(req: express.Request, res: express.Response, nex
 
     });
 }
-
-
-
-
 
 export function ProcessAddPage(req: express.Request, res: express.Response, next: express.NextFunction):void
 {
@@ -204,4 +199,3 @@ export function ProcessDeletePage(req: express.Request, res: express.Response, n
         res.json({success: true, msg: 'Successfully Deleted Survey'});
     });
 }
-

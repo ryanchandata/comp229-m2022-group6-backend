@@ -6,6 +6,14 @@ import Response from '../Models/response';
 
 export function DisplayPublicSurveyList(req: express.Request, res: express.Response, next: express.NextFunction)
 {
+    const date = new Date();
+    const filters = {
+        expirationDate: {
+          $gte: date
+        },
+      };
+    
+    
     Survey.find(function(err, surveysCollection)
     {
         if(err)
@@ -16,7 +24,7 @@ export function DisplayPublicSurveyList(req: express.Request, res: express.Respo
 
         res.json({success: true, msg: 'Survey Displayed Successfully', surveys: surveysCollection, user:req.user});
 
-    })
+    }).where(filters);
 }
 
 export function DisplayResponseAddPage(req: express.Request, res: express.Response, next: express.NextFunction):void
