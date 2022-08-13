@@ -8,12 +8,14 @@ export function DisplayPublicSurveyList(req: express.Request, res: express.Respo
 {
     const date = new Date();
     const filters = {
+        activationDate: {
+          $lt : date
+        },
         expirationDate: {
           $gte: date
-        },
+        }
       };
-    
-    
+       
     Survey.find(function(err, surveysCollection)
     {
         if(err)
