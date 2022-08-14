@@ -6,16 +6,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProcessDeletePage = exports.ProcessEditPage = exports.ProcessAddPage = exports.DisplayEditPage = exports.DisplayAddPage = exports.DisplaySurveyList = void 0;
 const survey_1 = __importDefault(require("../Models/survey"));
 function DisplaySurveyList(req, res, next) {
-    const localUserName = localStorage.getItem('user.id');
-    const filters = {
-        username: localUserName
-    };
     survey_1.default.find(function (err, surveysCollection) {
         if (err) {
             console.error(err);
             res.end(err);
         }
-        res.json({ success: true, msg: localUserName, surveys: surveysCollection, user: req.user });
+        res.json({ success: true, msg: 'Survey Displayed Successfully', surveys: surveysCollection, user: req.user });
     });
 }
 exports.DisplaySurveyList = DisplaySurveyList;
