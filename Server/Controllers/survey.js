@@ -15,7 +15,7 @@ function DisplaySurveyList(req, res, next) {
             console.error(err);
             res.end(err);
         }
-        res.json({ success: true, msg: 'Survey Displayed Successfully', surveys: surveysCollection, user: req.user });
+        res.json({ success: true, msg: localUserName, surveys: surveysCollection, user: req.user });
     });
 }
 exports.DisplaySurveyList = DisplaySurveyList;
