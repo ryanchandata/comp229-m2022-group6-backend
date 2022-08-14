@@ -7,6 +7,11 @@ import {UserDisplayName} from '../Util';
 
 export function DisplaySurveyList(req: express.Request, res: express.Response, next: express.NextFunction)
 {
+    const localUserName = localStorage.getItem('user.id')
+    const filters = {
+        username: localUserName
+    };
+
     Survey.find(function(err, surveysCollection)
     {
         if(err)
@@ -17,7 +22,7 @@ export function DisplaySurveyList(req: express.Request, res: express.Response, n
 
         res.json({success: true, msg: 'Survey Displayed Successfully', surveys: surveysCollection, user:req.user});
 
-    })
+    }).where(filters);
 }
 
 export function DisplayAddPage(req: express.Request, res: express.Response, next: express.NextFunction):void
