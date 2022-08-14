@@ -39,7 +39,6 @@ function ProcessResponseAddPage(req, res, next) {
             console.error(err);
             res.end(err);
         }
-        return res.json({ success: true, msg: 'Successfully Added Response', response: newResponse });
     });
     let id = req.params.id;
     let updateSurveys = new survey_1.default({

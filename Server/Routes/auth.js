@@ -8,6 +8,8 @@ const router = express_1.default.Router();
 const auth_1 = require("../Controllers/auth");
 router.post('/login', auth_1.ProcessLoginPage);
 router.post('/register', auth_1.ProcessRegisterPage);
+router.get('/userEdit/:id', auth_1.DisplayUserEditPage);
+router.post('/userEdit/:id', auth_1.ProcessUserEditPage);
 router.get('/logout', auth_1.ProcessLogoutPage);
 exports.default = router;
 //# sourceMappingURL=auth.js.map
