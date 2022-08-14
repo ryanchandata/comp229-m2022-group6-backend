@@ -16,7 +16,7 @@ function DisplaySurveyList(req, res, next) {
             res.end(err);
         }
         res.json({ success: true, msg: 'Survey Displayed Successfully', surveys: surveysCollection, user: req.user });
-    }).where(filters);
+    });
 }
 exports.DisplaySurveyList = DisplaySurveyList;
 function DisplayAddPage(req, res, next) {
