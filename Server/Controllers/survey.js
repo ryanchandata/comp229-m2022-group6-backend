@@ -31,36 +31,11 @@ function DisplayEditPage(req, res, next) {
 }
 exports.DisplayEditPage = DisplayEditPage;
 function ProcessAddPage(req, res, next) {
-    let questionsTitles = [
-        req.body.question1,
-        req.body.question2
-    ];
-    let optionDetails = [
-        [req.body.options1, req.body.options2, req.body.options3, req.body.options4],
-        [req.body.options5, req.body.options6, req.body.options7, req.body.options8]
-    ];
-    let optionType = [
-        req.body.optionType1,
-        req.body.optionType2
-    ];
-    let optionsArray = [];
-    let questionsArray = [];
-    for (let i = 0; i < questionsTitles.length; i++) {
-        for (let j = 0; j < 4; j++) {
-            optionsArray.push({
-                "details": optionDetails[i][j]
-            });
-        }
-        questionsArray.push({
-            title: questionsTitles[i],
-            optionType: optionType[i],
-            options: optionsArray
-        });
-    }
     let newSurvey = new survey_1.default({
         name: req.body.name,
         activationDate: req.body.activationDate,
         expirationDate: req.body.expirationDate,
+        status: req.body.status,
         question1: req.body.question1,
         optionType1: req.body.optionType1,
         optiondetails1_1: req.body.optiondetails1_1,
@@ -85,37 +60,12 @@ function ProcessAddPage(req, res, next) {
 exports.ProcessAddPage = ProcessAddPage;
 function ProcessEditPage(req, res, next) {
     let id = req.params.id;
-    let questionsTitles = [
-        req.body.question1,
-        req.body.question2
-    ];
-    let optionDetails = [
-        [req.body.options1, req.body.options2, req.body.options3, req.body.options4],
-        [req.body.options5, req.body.options6, req.body.options7, req.body.options8]
-    ];
-    let optionType = [
-        req.body.optionType1,
-        req.body.optionType2
-    ];
-    let optionsArray = [];
-    let questionsArray = [];
-    for (let i = 0; i < questionsTitles.length; i++) {
-        for (let j = 0; j < 4; j++) {
-            optionsArray.push({
-                "details": optionDetails[i][j]
-            });
-        }
-        questionsArray.push({
-            title: questionsTitles[i],
-            optionType: optionType[i],
-            options: optionsArray
-        });
-    }
     let updateSurveys = new survey_1.default({
         "_id": id,
         "name": req.body.name,
         "activationDate": req.body.activationDate,
         "expirationDate": req.body.expirationDate,
+        "status": req.body.status,
         "question1": req.body.question1,
         "optionType1": req.body.optionType1,
         "optiondetails1_1": req.body.optiondetails1_1,
