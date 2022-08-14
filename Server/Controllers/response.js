@@ -7,13 +7,22 @@ exports.DisplayResponseStatPage = exports.ProcessResponseAddPage = exports.Displ
 const survey_1 = __importDefault(require("../Models/survey"));
 const response_1 = __importDefault(require("../Models/response"));
 function DisplayPublicSurveyList(req, res, next) {
+    const date = new Date();
+    const filters = {
+        activationDate: {
+            $lt: date
+        },
+        expirationDate: {
+            $gte: date
+        }
+    };
     survey_1.default.find(function (err, surveysCollection) {
         if (err) {
             console.error(err);
             res.end(err);
         }
         res.json({ success: true, msg: 'Survey Displayed Successfully', surveys: surveysCollection, user: req.user });
-    });
+    }).where(filters);
 }
 exports.DisplayPublicSurveyList = DisplayPublicSurveyList;
 function DisplayResponseAddPage(req, res, next) {

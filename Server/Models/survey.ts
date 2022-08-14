@@ -21,6 +21,11 @@ const surveySchema = new Schema
     type: Date,
     default: Date.now()
   },
+  status: {
+    type: String,
+    default: "Yes"
+  },
+
   responses:
   {
     type: Number,
