@@ -63,6 +63,18 @@ function ProcessResponseAddPage(req, res, next) {
 }
 exports.ProcessResponseAddPage = ProcessResponseAddPage;
 function DisplayResponseStatPage(req, res, next) {
+    let id = req.params.id;
+    const date = new Date();
+    const filters = {
+        surveyId: id
+    };
+    survey_1.default.find(function (err, surveysCollection) {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        res.json({ success: true, msg: 'Survey Displayed Successfully', surveys: surveysCollection, user: req.user });
+    }).where(filters);
 }
 exports.DisplayResponseStatPage = DisplayResponseStatPage;
 //# sourceMappingURL=response.js.map

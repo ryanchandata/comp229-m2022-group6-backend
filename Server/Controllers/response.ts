@@ -69,7 +69,7 @@ export function ProcessResponseAddPage(req: express.Request, res: express.Respon
             res.end(err);
         }
 
-            });
+    });
     let id = req.params.id;
 
     let updateSurveys = new Survey
@@ -92,5 +92,21 @@ export function ProcessResponseAddPage(req: express.Request, res: express.Respon
 
 export function DisplayResponseStatPage(req: express.Request, res: express.Response, next: express.NextFunction):void
 {
-   
+  let id = req.params.id;
+  const date = new Date();
+  const filters = {
+      surveyId: id
+    };
+     
+  Survey.find(function(err, surveysCollection)
+  {
+      if(err)
+      {
+          console.error(err);
+          res.end(err);
+      }
+
+      res.json({success: true, msg: 'Survey Displayed Successfully', surveys: surveysCollection, user:req.user});
+
+  }).where(filters);
 }
