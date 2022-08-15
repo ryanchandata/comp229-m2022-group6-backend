@@ -102,9 +102,11 @@ export function ProcessLogoutPage(req: express.Request, res: express.Response, n
 
 export function ProcessUserEditPage(req: express.Request, res: express.Response, next: express.NextFunction)
 {
-    let newUser = new User
+    let id = req.params.id;
+    
+    let updateUser = new User
     ({
-        userId: req.body.userId,
+        _id: id,
         displayName: req.body.displayName,
         username: req.body.username,
         emailAddress: req.body.emailAddress,
@@ -118,24 +120,8 @@ export function ProcessUserEditPage(req: express.Request, res: express.Response,
 
     })
 
-    //Insert the new User object into the database (user collection)
-    User.create(newUser, function(err: CallbackError)
-    {
-        if(err)
-        {
-            console.error(err);
-            res.end(err);
-        }
-
-            });
-    let id = req.params.id;
-
-    let updateUsers = new User
-    ({
-      "_id": id,
-    });
-
-    User.updateOne(function(err: CallbackError)
+    //update the survey in the database
+    User.updateOne({_id: id}, updateUser, function(err: CallbackError)
     {
         if(err)
         {
@@ -144,7 +130,7 @@ export function ProcessUserEditPage(req: express.Request, res: express.Response,
         }
 
         //edit was successful -> go to the survey page
-        res.json({success: true, msg: 'Successfully Edited User', user: updateUsers});
+        res.json({success: true, msg: 'Successfully Edited User', survey: updateUser});
     });
 }
 
