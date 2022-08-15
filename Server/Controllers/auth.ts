@@ -107,9 +107,9 @@ export function ProcessUserEditPage(req: express.Request, res: express.Response,
     let updateUser = new User
     ({
         _id: id,
-        displayName: req.body.displayName,
+        DisplayName: req.body.DisplayName,
         username: req.body.username,
-        email: req.body.email,
+        EmailAddress: req.body.EmailAddress,
     
 
         Updated:
