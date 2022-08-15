@@ -9,9 +9,9 @@ const UserSchema = new Schema
 
     userId: String,
 
-    displayName: String,
+    DisplayName: String,
     username: String,
-    emailAddress: String,
+    EmailAddress: String,
     password: String,
 
     Created:

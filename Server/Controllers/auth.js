@@ -69,7 +69,6 @@ function ProcessUserEditPage(req, res, next) {
     let updateUser = new user_1.default({
         _id: id,
         DisplayName: req.body.DisplayName,
-        username: req.body.username,
         EmailAddress: req.body.EmailAddress,
         Updated: {
             type: Date,
