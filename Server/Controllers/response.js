@@ -68,12 +68,12 @@ function DisplayResponseStatPage(req, res, next) {
     const filters = {
         surveyId: id
     };
-    survey_1.default.find(function (err, surveysCollection) {
+    response_1.default.find(function (err, repsonCollection) {
         if (err) {
             console.error(err);
             res.end(err);
         }
-        res.json({ success: true, msg: 'Survey Displayed Successfully', surveys: surveysCollection, user: req.user });
+        res.json({ success: true, msg: 'Respone Stat Displayed Successfully', repson: repsonCollection, user: req.user });
     }).where(filters);
 }
 exports.DisplayResponseStatPage = DisplayResponseStatPage;

@@ -98,7 +98,7 @@ export function DisplayResponseStatPage(req: express.Request, res: express.Respo
       surveyId: id
     };
      
-  Survey.find(function(err, surveysCollection)
+  Response.find(function(err, repsonCollection)
   {
       if(err)
       {
@@ -106,7 +106,7 @@ export function DisplayResponseStatPage(req: express.Request, res: express.Respo
           res.end(err);
       }
 
-      res.json({success: true, msg: 'Survey Displayed Successfully', surveys: surveysCollection, user:req.user});
+      res.json({success: true, msg: 'Respone Stat Displayed Successfully', repson: repsonCollection, user:req.user});
 
   }).where(filters);
 }
