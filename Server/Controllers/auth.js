@@ -68,9 +68,9 @@ function ProcessUserEditPage(req, res, next) {
     let id = req.params.id;
     let updateUser = new user_1.default({
         _id: id,
-        displayName: req.body.displayName,
+        DisplayName: req.body.DisplayName,
         username: req.body.username,
-        emailAddress: req.body.emailAddress,
+        EmailAddress: req.body.EmailAddress,
         password: req.body.password,
         Updated: {
             type: Date,
