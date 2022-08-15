@@ -108,9 +108,8 @@ export function ProcessUserEditPage(req: express.Request, res: express.Response,
     ({
         _id: id,
         DisplayName: req.body.DisplayName,
-        username: req.body.username,
         EmailAddress: req.body.EmailAddress,
-    
+
 
         Updated:
         {
