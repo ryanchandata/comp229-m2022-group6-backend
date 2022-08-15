@@ -61,17 +61,16 @@ function ProcessLogoutPage(req, res, next) {
         }
         console.log("User Logged Out");
     });
-    res.json({ success: true, msg: 'User Lodged Out Successfully!' });
+    res.json({ success: true, msg: 'User Log Out Successfully!' });
 }
 exports.ProcessLogoutPage = ProcessLogoutPage;
 function ProcessUserEditPage(req, res, next) {
     let id = req.params.id;
     let updateUser = new user_1.default({
         _id: id,
-        DisplayName: req.body.DisplayName,
+        displayName: req.body.displayName,
         username: req.body.username,
-        EmailAddress: req.body.EmailAddress,
-        password: req.body.password,
+        email: req.body.email,
         Updated: {
             type: Date,
             default: Date.now()
