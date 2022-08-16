@@ -145,7 +145,7 @@ export function DisplayResponseStatPage2(req: express.Request, res: express.Resp
           res.end(err);
       }
 
-      res.json({success: true, msg: 'Response Stat 2 Displayed Successfully', response2: responseCollection, user:req.user});
+      res.json({success: true, msg: 'Response Stat 2 Displayed Successfully', response: responseCollection, user:req.user});
 
   });
 }
