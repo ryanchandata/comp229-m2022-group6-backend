@@ -64,8 +64,6 @@ function ProcessResponseAddPage(req, res, next) {
 exports.ProcessResponseAddPage = ProcessResponseAddPage;
 function DisplayResponseStatPage(req, res, next) {
     let id = req.params.id;
-    const date = new Date();
-    let filters = {};
     response_1.default.aggregate([
         {
             '$match': {

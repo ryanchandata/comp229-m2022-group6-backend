@@ -93,10 +93,6 @@ export function ProcessResponseAddPage(req: express.Request, res: express.Respon
 export function DisplayResponseStatPage(req: express.Request, res: express.Response, next: express.NextFunction):void
 {
   let id = req.params.id;
-  const date = new Date();
-  let filters = {
-
-    };
      
   Response.aggregate(    [
     {
