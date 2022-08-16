@@ -94,11 +94,24 @@ export function DisplayResponseStatPage(req: express.Request, res: express.Respo
 {
   let id = req.params.id;
   const date = new Date();
-  const filters = {
-      surveyId: id
+  let filters = {
+
     };
      
-  Response.find(function(err, repsonCollection)
+  Response.aggregate(    [
+    {
+      '$match': {
+        'surveyId': id
+      }
+    }, {
+      '$group': {
+        '_id': '$question1_ans', 
+        'count': {
+          '$sum': 1
+        }
+      }
+    }
+], function(err, repsonCollection)
   {
       if(err)
       {
@@ -108,5 +121,5 @@ export function DisplayResponseStatPage(req: express.Request, res: express.Respo
 
       res.json({success: true, msg: 'Respone Stat Displayed Successfully', repson: repsonCollection, user:req.user});
 
-  }).where(filters);
+  });
 }

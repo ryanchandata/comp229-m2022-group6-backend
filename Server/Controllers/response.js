@@ -65,16 +65,27 @@ exports.ProcessResponseAddPage = ProcessResponseAddPage;
 function DisplayResponseStatPage(req, res, next) {
     let id = req.params.id;
     const date = new Date();
-    const filters = {
-        surveyId: id
-    };
-    response_1.default.find(function (err, repsonCollection) {
+    let filters = {};
+    response_1.default.aggregate([
+        {
+            '$match': {
+                'surveyId': id
+            }
+        }, {
+            '$group': {
+                '_id': '$question1_ans',
+                'count': {
+                    '$sum': 1
+                }
+            }
+        }
+    ], function (err, repsonCollection) {
         if (err) {
             console.error(err);
             res.end(err);
         }
         res.json({ success: true, msg: 'Respone Stat Displayed Successfully', repson: repsonCollection, user: req.user });
-    }).where(filters);
+    });
 }
 exports.DisplayResponseStatPage = DisplayResponseStatPage;
 //# sourceMappingURL=response.js.map
