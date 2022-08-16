@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DisplayResponseStatPage = exports.ProcessResponseAddPage = exports.DisplayResponseAddPage = exports.DisplayPublicSurveyList = void 0;
+exports.DisplayResponseStatPage2 = exports.DisplayResponseStatPage1 = exports.ProcessResponseAddPage = exports.DisplayResponseAddPage = exports.DisplayPublicSurveyList = void 0;
 const survey_1 = __importDefault(require("../Models/survey"));
 const response_1 = __importDefault(require("../Models/response"));
 function DisplayPublicSurveyList(req, res, next) {
@@ -62,7 +62,7 @@ function ProcessResponseAddPage(req, res, next) {
     });
 }
 exports.ProcessResponseAddPage = ProcessResponseAddPage;
-function DisplayResponseStatPage(req, res, next) {
+function DisplayResponseStatPage1(req, res, next) {
     let id = req.params.id;
     response_1.default.aggregate([
         {
@@ -77,13 +77,37 @@ function DisplayResponseStatPage(req, res, next) {
                 }
             }
         }
-    ], function (err, repsonCollection) {
+    ], function (err, responseCollection) {
         if (err) {
             console.error(err);
             res.end(err);
         }
-        res.json({ success: true, msg: 'Respone Stat Displayed Successfully', repson: repsonCollection, user: req.user });
+        res.json({ success: true, msg: 'Response Stat Displayed Successfully', response: responseCollection, user: req.user });
     });
 }
-exports.DisplayResponseStatPage = DisplayResponseStatPage;
+exports.DisplayResponseStatPage1 = DisplayResponseStatPage1;
+function DisplayResponseStatPage2(req, res, next) {
+    let id = req.params.id;
+    response_1.default.aggregate([
+        {
+            '$match': {
+                'surveyId': id
+            }
+        }, {
+            '$group': {
+                '_id': '$question2_ans',
+                'count': {
+                    '$sum': 1
+                }
+            }
+        }
+    ], function (err, responseCollection) {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        res.json({ success: true, msg: 'Response Stat Displayed Successfully', response: responseCollection, user: req.user });
+    });
+}
+exports.DisplayResponseStatPage2 = DisplayResponseStatPage2;
 //# sourceMappingURL=response.js.map

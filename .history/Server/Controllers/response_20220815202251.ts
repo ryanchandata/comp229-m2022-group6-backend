@@ -120,7 +120,7 @@ export function DisplayResponseStatPage1(req: express.Request, res: express.Resp
   });
 }
 
-export function DisplayResponseStatPage2(req: express.Request, res: express.Response, next: express.NextFunction):void
+export function DisplayResponseStatPage(req: express.Request, res: express.Response, next: express.NextFunction):void
 {
   let id = req.params.id;
      

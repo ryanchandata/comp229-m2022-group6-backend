@@ -2,7 +2,7 @@ import express from 'express';
 const router = express.Router();
 
 //import the controller module
-import {DisplayPublicSurveyList, DisplayResponseAddPage, ProcessResponseAddPage, DisplayResponseStatPage1, DisplayResponseStatPage2} from "../Controllers/response";
+import {DisplayPublicSurveyList, DisplayResponseAddPage, ProcessResponseAddPage, DisplayResponseStatPage1} from "../Controllers/response";
 
 
 router.get('/publicSurveyList', DisplayPublicSurveyList);

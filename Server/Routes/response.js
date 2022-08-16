@@ -8,7 +8,8 @@ const router = express_1.default.Router();
 const response_1 = require("../Controllers/response");
 router.get('/publicSurveyList', response_1.DisplayPublicSurveyList);
 router.get('/responseAddPage/:id', response_1.DisplayResponseAddPage);
-router.get('/responseStatPage/:id', response_1.DisplayResponseStatPage);
+router.get('/responseStatAns1/:id', response_1.DisplayResponseStatPage1);
+router.get('/responseStatAns2/:id', response_1.DisplayResponseStatPage2);
 router.post('/responseAddPage/:id', response_1.ProcessResponseAddPage);
 exports.default = router;
 //# sourceMappingURL=response.js.map

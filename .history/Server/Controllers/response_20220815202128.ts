@@ -90,7 +90,7 @@ export function ProcessResponseAddPage(req: express.Request, res: express.Respon
     });
 }
 
-export function DisplayResponseStatPage1(req: express.Request, res: express.Response, next: express.NextFunction):void
+export function DisplayResponseStatPage(req: express.Request, res: express.Response, next: express.NextFunction):void
 {
   let id = req.params.id;
      
@@ -120,32 +120,3 @@ export function DisplayResponseStatPage1(req: express.Request, res: express.Resp
   });
 }
 
-export function DisplayResponseStatPage2(req: express.Request, res: express.Response, next: express.NextFunction):void
-{
-  let id = req.params.id;
-     
-  Response.aggregate(    [
-    {
-      '$match': {
-        'surveyId': id
-      }
-    }, {
-      '$group': {
-        '_id': '$question2_ans', 
-        'count': {
-          '$sum': 1
-        }
-      }
-    }
-], function(err, responseCollection)
-  {
-      if(err)
-      {
-          console.error(err);
-          res.end(err);
-      }
-
-      res.json({success: true, msg: 'Response Stat Displayed Successfully', response: responseCollection, user:req.user});
-
-  });
-}

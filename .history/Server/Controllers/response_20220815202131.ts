@@ -90,7 +90,7 @@ export function ProcessResponseAddPage(req: express.Request, res: express.Respon
     });
 }
 
-export function DisplayResponseStatPage1(req: express.Request, res: express.Response, next: express.NextFunction):void
+export function DisplayResponseStatPage(req: express.Request, res: express.Response, next: express.NextFunction):void
 {
   let id = req.params.id;
      
@@ -120,7 +120,7 @@ export function DisplayResponseStatPage1(req: express.Request, res: express.Resp
   });
 }
 
-export function DisplayResponseStatPage2(req: express.Request, res: express.Response, next: express.NextFunction):void
+export function DisplayResponseStatPage(req: express.Request, res: express.Response, next: express.NextFunction):void
 {
   let id = req.params.id;
      
@@ -131,7 +131,7 @@ export function DisplayResponseStatPage2(req: express.Request, res: express.Resp
       }
     }, {
       '$group': {
-        '_id': '$question2_ans', 
+        '_id': '$question1_ans', 
         'count': {
           '$sum': 1
         }
